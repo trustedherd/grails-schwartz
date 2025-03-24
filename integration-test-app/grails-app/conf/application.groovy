@@ -72,6 +72,7 @@ quartz {
 	purgeQuartzTablesOnStartup = false
 	startupDelay = 0
 	waitForJobsToCompleteOnShutdown = false
+	dontPauseWhenValidatingJobs = false
 
 	properties {
 		// RAMJobStore
