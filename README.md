@@ -31,3 +31,15 @@ dependencies {
 ## Documentation
 
 http://agileorbit.github.io/grails-schwartz
+
+
+## How is the plugin published
+
+- Run `./gradlew publishToMavenLocal` # builds the plugin
+- Run `./gradlew copyToLocalRepo` # copies build to repository/
+- Commit and push
+
+TODO: automate publishing voa github actions
+
+Artifacts are now deployed to:
+https://raw.githubusercontent.com/trustedherd/grails-schwartz/master/repository/com/agileorbit/schwartz/${version}
