@@ -53,16 +53,16 @@ task wrapper(type: Wrapper) {
 
 grailsPublish {
 	desc = 'Quartz integration'
-	developers = [burtbeckwith: 'Burt Beckwith']
-	githubSlug = 'agileorbit/grails-schwartz'
-	issueTrackerUrl = 'https://github.com/agileorbit/grails-schwartz/issues'
+	developers = [burtbeckwith: 'Burt Beckwith', mugren: 'mugren']
+	githubSlug = 'trustedherd/grails-schwartz'
+	issueTrackerUrl = 'https://github.com/trustedherd/grails-schwartz/issues'
 	license {
 		name = 'Apache-2.0'
 	}
 	title = 'Schwartz Plugin'
-	userOrg = 'agileorbit'
-	repo = 'grails-plugins'
-	vcsUrl = 'https://github.com/agileorbit/grails-schwartz/'
+	userOrg = 'trustedherd'
+	repo = 'grails-schwartz'
+	vcsUrl = 'https://github.com/trustedherd/grails-schwartz/'
 }
 
 task docs(dependsOn: [asciidoctor, groovydoc]) << {
@@ -111,4 +111,13 @@ asciidoctor {
 	            toc                 : 'left',
 	            toc2                : '',
 	            toclevels           : '2'
+}
+
+task copyToLocalRepo(type: Copy){
+	def localMaven = new File(System.getProperty('user.home'), '.m2/repository').absolutePath
+	into "$projectDir/repository"
+	from(localMaven) {
+		include "com/agileorbit/schwartz/maven-metadata-local.xml"
+		include "com/agileorbit/schwartz/${version}/*"
+	}
 }

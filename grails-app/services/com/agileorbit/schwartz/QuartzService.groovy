@@ -138,6 +138,7 @@ class QuartzService {
 	 * @throws SchedulerException
 	 */
 	void validateExistingJobs() throws SchedulerException {
+		boolean dontPause = quartzConfig('dontPauseWhenValidatingJobs', Boolean, false)
 		for (JobKey jobKey in quartzScheduler.getJobKeys(anyGroup())) {
 			try {
 				quartzScheduler.getJobDetail jobKey
@@ -148,6 +149,9 @@ class QuartzService {
 			}
 			catch (e) {
 				log.warn 'Problem with JobDetail {}, pausing all triggers: {}', jobKey, e.message
+			}
+			if (dontPause) {
+				continue
 			}
 			quartzScheduler.pauseJob jobKey
 		}

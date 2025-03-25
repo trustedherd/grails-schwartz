@@ -1,0 +1,20 @@
+<plugin name='schwartz' version='1.0.2' grailsVersion='3.0.0 &gt; *'>
+  <type>com.agileorbit.schwartz.SchwartzGrailsPlugin</type>
+  <authorEmail>burt@agileorbit.com</authorEmail>
+  <author>Burt Beckwith</author>
+  <documentation>http://agileorbit.github.io/grails-schwartz</documentation>
+  <description>Quartz integration</description>
+  <title>Schwartz Plugin</title>
+  <version />
+  <grailsVersion>3.0.0 &gt; *</grailsVersion>
+  <loadAfter>[hibernate, hibernate3, hibernate4, hibernate5]</loadAfter>
+  <license>APACHE</license>
+  <issueManagement url='https://github.com/agileorbit/grails-schwartz/issues' />
+  <organization name='Agile Orbit' url='http://agileorbit.com/' />
+  <name>schwartz</name>
+  <scm url='https://github.com/agileorbit/grails-schwartz/' />
+  <resources>
+    <resource>com.agileorbit.schwartz.Application</resource>
+    <resource>com.agileorbit.schwartz.QuartzService</resource>
+  </resources>
+</plugin>
